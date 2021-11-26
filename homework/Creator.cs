@@ -19,7 +19,7 @@ namespace homework
             hashTable.Add(temp);
             return temp.Index;
         }
-        public static int CreateAccount(double high, int storeys, int aparts, int entrances)
+        public static int CreateAccount(int Height, int Numberoffloors, int Numberofapartments, int Numberofentrances)
         {
             Temp temp = new Temp();
             hashTable.Add(temp);

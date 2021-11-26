@@ -13,9 +13,11 @@ namespace lesson2011
     {
         static Random random;
         public static Dictionary<int, Students> student;
+        public static LQueue<Toss> tosses = new LQueue<Toss>();
         static Program()
         {
             random = new Random();
+            student = new Dictionary<int, Students>();
         }
         static void Write(string str)
         {
@@ -53,7 +55,7 @@ namespace lesson2011
             {
                 Console.WriteLine($"{key1}. {student[key1]}");
             }
-            LQueue<Toss> tosses = new LQueue<Toss>();
+
             Console.WriteLine("\nTrue-начать; False-выйти:");
             bool lotery = Convert.ToBoolean(Console.ReadLine());
             while (lotery)
@@ -86,7 +88,7 @@ namespace lesson2011
                         i = coltickets;
                     }
                 }
-                Console.WriteLine("\nНажмите интер, чтобы провести розыгрыш.");
+                Console.WriteLine("\nНажмите enter, чтобы провести розыгрыш.");
                 if (Console.ReadKey().Key == ConsoleKey.Enter)
                 {
                     foreach (Toss toss in tosses)
@@ -130,6 +132,13 @@ namespace lesson2011
                 foreach (Toss toss in tosses)
                 {
                     Console.WriteLine(toss);
+                }
+                foreach (Toss toss in tosses)
+                {
+                    foreach (int index in toss.Winners)
+                    {
+                        student[index].ratio = 1;
+                    }
                 }
 
                 Console.WriteLine("Задание 2");

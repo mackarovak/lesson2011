@@ -11,16 +11,10 @@ namespace lesson2011
     {
         public override void Enqueue(object obj)
         {
+
             base.Enqueue(obj);
-            if (count == 4)
+            if (Count == 4)
             {
-                if (obj is Toss)
-                {
-                    foreach (int index in (obj as Toss).Winners)
-                    {
-                        Program.student[index].ratio = 1;
-                    }
-                }
                 Dequeue();
             }
         }
